@@ -32,28 +32,29 @@ public struct ActivityIndicatorView: View {
     }
 
     public var body: some View {
-        guard isVisible else { return AnyView(EmptyView()) }
+     if isVisible {
         switch type {
         case .default:
-            return AnyView(DefaultIndicatorView())
+             DefaultIndicatorView()
         case .arcs:
-            return AnyView(ArcsIndicatorView())
+             ArcsIndicatorView()
         case .rotatingDots:
-            return AnyView(RotatingDotsIndicatorView())
+              RotatingDotsIndicatorView()
         case .flickeringDots:
-            return AnyView(FlickeringDotsIndicatorView())
+              FlickeringDotsIndicatorView()
         case .scalingDots:
-            return AnyView(ScalingDotsIndicatorView())
+             ScalingDotsIndicatorView()
         case .opacityDots:
-            return AnyView(OpacityDotsIndicatorView())
+             OpacityDotsIndicatorView()
         case .equalizer:
-            return AnyView(EqualizerIndicatorView())
+              EqualizerIndicatorView()
         case .growingArc(let color):
-            return AnyView(GrowingArcIndicatorView(color: color))
+             GrowingArcIndicatorView(color: color)
         case .growingCircle:
-            return AnyView(GrowingCircleIndicatorView())
+             GrowingCircleIndicatorView()
         case .gradient(let colors, let lineCap):
-            return AnyView(GradientIndicatorView(colors: colors, lineCap: lineCap))
-        }
+             GradientIndicatorView(colors: colors, lineCap: lineCap)
+         }
+     }
     }
 }
